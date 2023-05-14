@@ -1,39 +1,61 @@
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { RecoilRoot } from 'recoil';
 import HomeScreen from './src/pages/Home/Home';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProgressScreen from './src/pages/Progress/Progress';
+import SettingsScreen from './src/pages/Settings/Settings';
 
-const { Navigator, Screen } = createMaterialBottomTabNavigator();
+const { Navigator, Screen } = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Navigator
-        initialRouteName="Home"
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color }) => {
-            let iconName = 'home';
-            let rn = route.name;
+    <RecoilRoot>
+      <NavigationContainer>
+        <Navigator
+          initialRouteName="Home"
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color }) => {
+              let iconName = 'home';
+              let rn = route.name;
 
-            if (rn === 'Home') {
-              iconName = focused ? 'home' : 'home-outline';
-            } else if (rn === 'Progress') {
-              iconName = 'map-marker-path';
-            }
+              switch (rn) {
+                case 'Home':
+                  iconName = focused ? 'home' : 'home-outline';
+                  break;
+                case 'Progress':
+                  iconName = 'map-marker-path';
+                  break;
+                case 'Settings':
+                  iconName = focused ? 'cog' : 'cog-outline';
+              }
 
-            return (
-              <MaterialCommunityIcons name={iconName} size={30} color={color} />
-            );
-          },
-          tabBarStyle: {
-            backgroundColor: '#000',
-          },
-        })}
-      >
-        <Screen name="Home" component={HomeScreen} />
-        <Screen name="Progress" component={ProgressScreen} />
-      </Navigator>
-    </NavigationContainer>
+              return (
+                <MaterialCommunityIcons
+                  name={iconName}
+                  size={30}
+                  color={color}
+                />
+              );
+            },
+            tabBarActiveTintColor: '#23395d',
+            headerTitleStyle: {
+              color: '#FFF',
+            },
+            tabBarStyle: {
+              backgroundColor: '#000',
+              borderTopColor: '#000',
+            },
+            headerStyle: {
+              backgroundColor: '#23395d',
+            },
+          })}
+        >
+          <Screen name="Home" component={HomeScreen} />
+          <Screen name="Progress" component={ProgressScreen} />
+          <Screen name="Settings" component={SettingsScreen} />
+        </Navigator>
+      </NavigationContainer>
+    </RecoilRoot>
   );
 }
