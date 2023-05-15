@@ -5,6 +5,7 @@ import HomeScreen from './src/pages/Home/Home';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProgressScreen from './src/pages/Progress/Progress';
 import SettingsScreen from './src/pages/Settings/Settings';
+import MapScreen from './src/pages/Map/Map';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -28,6 +29,10 @@ export default function App() {
                   break;
                 case 'Settings':
                   iconName = focused ? 'cog' : 'cog-outline';
+                  break;
+                case 'Map':
+                  iconName = focused ? 'map' : 'map-outline';
+                  break;
               }
 
               return (
@@ -53,6 +58,13 @@ export default function App() {
         >
           <Screen name="Home" component={HomeScreen} />
           <Screen name="Progress" component={ProgressScreen} />
+          <Screen
+            name="Map"
+            component={MapScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
           <Screen name="Settings" component={SettingsScreen} />
         </Navigator>
       </NavigationContainer>
