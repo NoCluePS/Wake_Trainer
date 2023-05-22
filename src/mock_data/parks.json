@@ -1,0 +1,22 @@
+[
+  {
+    "coords": {
+      "latitude": 54.6381,
+      "longitude": 25.3761
+    },
+    "name": "WakeWay",
+    "link": "https://wakeway.lt/",
+    "price": { "total": 35, "duration": "day" },
+    "logo": "https://wakeway.lt/wp-content/uploads/2023/05/wakeway-logo-big.svg"
+  },
+  {
+    "coords": {
+      "latitude": 54.8255,
+      "longitude": 25.1335
+    },
+    "name": "Wake Inn",
+    "link": "https://wakeinn.lt/",
+    "price/day": { "total": 20, "duration": "20 minutes" },
+    "logo": "https://wakeinn.lt/wp-content/uploads/2022/03/WAKE-INN-LOGO-BW-.png"
+  }
+]

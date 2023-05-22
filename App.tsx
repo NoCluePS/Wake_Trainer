@@ -4,7 +4,6 @@ import { RecoilRoot } from 'recoil';
 import HomeScreen from './src/pages/Home/Home';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProgressScreen from './src/pages/Progress/Progress';
-import SettingsScreen from './src/pages/Settings/Settings';
 import MapScreen from './src/pages/Map/Map';
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -65,7 +64,6 @@ export default function App() {
               headerShown: false,
             }}
           />
-          <Screen name="Settings" component={SettingsScreen} />
         </Navigator>
       </NavigationContainer>
     </RecoilRoot>

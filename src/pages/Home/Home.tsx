@@ -28,7 +28,10 @@ const HomeScreen = () => {
         Learn some of these new tricks!
       </Text>
       <View className="flex-row">
-        {tricks && tricks.map((trick) => <CarouselCardItem trick={trick} />)}
+        {tricks &&
+          tricks.map(({ id, ...trick }) => (
+            <CarouselCardItem key={id} trick={{ id, ...trick }} />
+          ))}
       </View>
     </View>
   );
