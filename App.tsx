@@ -1,12 +1,19 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { RecoilRoot } from 'recoil';
-import HomeScreen from './src/pages/Home/Home';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProgressScreen from './src/pages/Progress/Progress';
 import MapScreen from './src/pages/Map/Map';
+import HomeTabs from './src/pages/Home/HomeTabs';
 
-const { Navigator, Screen } = createBottomTabNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  Progress: undefined;
+  Settings: undefined;
+  Map: undefined;
+};
+
+const { Navigator, Screen } = createBottomTabNavigator<RootStackParamList>();
 
 export default function App() {
   return (
@@ -55,7 +62,13 @@ export default function App() {
             },
           })}
         >
-          <Screen name="Home" component={HomeScreen} />
+          <Screen
+            name="Home"
+            options={{
+              headerShown: false,
+            }}
+            component={HomeTabs}
+          />
           <Screen name="Progress" component={ProgressScreen} />
           <Screen
             name="Map"

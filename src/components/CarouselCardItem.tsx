@@ -9,15 +9,17 @@ const { Title, Cover, Content } = Card;
 
 interface CardItemProps {
   trick: Trick;
+  onPress: any;
 }
 
-const CarouselCardItem: FC<CardItemProps> = ({ trick }) => {
+const CarouselCardItem: FC<CardItemProps> = ({ trick, onPress }) => {
   const { name, image, skillLevel } = trick;
 
   return (
     <Card
       mode="elevated"
       style={{ backgroundColor: '#222', width: '40%', margin: 5 }}
+      onPress={onPress}
     >
       <Cover source={{ uri: image }} />
       <Title title={name} titleStyle={{ color: '#FFF' }} />
