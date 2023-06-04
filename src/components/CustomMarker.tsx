@@ -8,11 +8,12 @@ interface CustomMarkerProps {
     latitude: number;
     longitude: number;
   };
+  onPress: () => void;
 }
 
-const CustomMarker: FC<CustomMarkerProps> = ({ coords }) => {
+const CustomMarker: FC<CustomMarkerProps> = ({ coords, onPress }) => {
   return (
-    <Marker coordinate={coords}>
+    <Marker coordinate={coords} onPress={onPress}>
       <View className="flex flex-col items-center">
         <View
           style={{

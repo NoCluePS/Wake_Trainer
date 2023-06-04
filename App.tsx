@@ -3,8 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { RecoilRoot } from 'recoil';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProgressScreen from './src/pages/Progress/Progress';
-import MapScreen from './src/pages/Map/Map';
 import HomeTabs from './src/pages/Home/HomeTabs';
+import MapTabs from './src/pages/Map/MapTabs';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -72,7 +72,7 @@ export default function App() {
           <Screen name="Progress" component={ProgressScreen} />
           <Screen
             name="Map"
-            component={MapScreen}
+            component={MapTabs}
             options={{
               headerShown: false,
             }}

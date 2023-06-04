@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { View } from 'react-native';
 import MapView from 'react-native-maps';
 import { Searchbar } from 'react-native-paper';
-import parkData from '../../mock_data/parks.json';
-import CustomMarker from '../../components/CustomMarker';
+import parkData from '../../../mock_data/parks.json';
+import CustomMarker from '../../../components/CustomMarker';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { MapTabProps } from '../MapTabs';
 
-const MapScreen = () => {
+const MapScreen: FC<NativeStackScreenProps<MapTabProps, 'Map'>> = ({
+  navigation,
+}) => {
   const [searchVal, setSearchVal] = useState('');
 
   return (
@@ -32,7 +36,11 @@ const MapScreen = () => {
         className="w-full h-full z-10"
       >
         {parkData.map((park) => (
-          <CustomMarker key={park.name} {...park} />
+          <CustomMarker
+            onPress={() => navigation.navigate('ParkDetail', { id: park.id })}
+            key={park.name}
+            {...park}
+          />
         ))}
       </MapView>
     </View>

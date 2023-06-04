@@ -1,5 +1,6 @@
 [
   {
+    "id": 0,
     "coords": {
       "latitude": 54.6381,
       "longitude": 25.3761
@@ -10,6 +11,7 @@
     "logo": "https://wakeway.lt/wp-content/uploads/2023/05/wakeway-logo-big.svg"
   },
   {
+    "id": 1,
     "coords": {
       "latitude": 54.8255,
       "longitude": 25.1335

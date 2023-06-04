@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { Trick } from "../types/types";
+import { Park, Trick } from "../types/types";
 
 // ! Remove when auth is implemented
 export const userState = atom({
@@ -15,5 +15,10 @@ export const userState = atom({
 
 export const tricksState = atom<Trick[] | null>({
   key: 'tricksState',
+  default: null,
+})
+
+export const parkState = atom<Park[] | null>({
+  key: 'parkState',
   default: null,
 })

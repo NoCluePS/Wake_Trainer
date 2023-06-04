@@ -9,7 +9,7 @@ import { getSkillLevelText } from '../../../utils/utils';
 
 type Props = NativeStackScreenProps<HomeTabProps, 'TrickDetail'>;
 
-const TrickDetail: FC<Props> = ({ route, navigation }) => {
+const TrickDetail: FC<Props> = ({ route }) => {
   const { id } = route.params;
   const tricks = useRecoilValue(tricksState);
   const detailTrick = tricks?.find((trick) => trick.id === id);
